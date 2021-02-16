@@ -114,22 +114,24 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
+                // initialize an integer array result 
                 int[] result = new int[n * 2];
+                // loop through the items in the counter unitl it is less than n
                 for (int ctr = 0; ctr < n; ++ctr)
                 {
-                    result[ctr * 2] = nums[ctr];
-                    result[ctr * 2 + 1] = nums[n + ctr];
+                    result[ctr * 2] = nums[ctr]; // nums array with counter as the index gets updated with result array[ctr*2]
+                    result[ctr * 2 + 1] = nums[n + ctr]; // the next index of the result array[ctr*2+1] gets updated with nums array with the index n appended to the counter value
                 }
-                Console.Write("[");
-                for (int ctr = 0; ctr < 2 * n; ++ctr)
+                Console.Write("["); // output line starts with square brackets. 
+                for (int ctr = 0; ctr < 2 * n; ++ctr) // looping through the counter for twice the n index value
                 {
-                    Console.Write(result[ctr]);
-                    if (ctr < 2 * n - 1)
+                    Console.Write(result[ctr]); // Printing the output of the result arry with the current counter value
+                    if (ctr < 2 * n - 1) // an if conditional statement, if the counter < twice the index n - 1
                     {
-                        Console.Write(",");
+                        Console.Write(","); // to separate the numbers in the output with "," punctuation
                     }
                 }
-                Console.WriteLine("]");
+                Console.WriteLine("]"); // close the output square bracket
             }
             catch (Exception)
             {
@@ -151,28 +153,28 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
-                for (int i = 1; i < ar2.Length; ++i)
+                for (int i = 1; i < ar2.Length; ++i) // iterate through the array's length, going through all the elements
                 {
-                    for (int j = ar2.Length - 1; j >= i; --j)
+                    for (int j = ar2.Length - 1; j >= i; --j) // another iteration to iterate through array length - 1, last but one element, decrementing the j 
                     {
-                        if ((ar2[j - 1] == 0) && (ar2[j] > 0))
+                        if ((ar2[j - 1] == 0) && (ar2[j] > 0)) // an if conditional statement, if the array[j-1] is equal to 0 and array[j] is greater than 0
                         {
-                            int t = ar2[j - 1];
-                            ar2[j - 1] = ar2[j];
-                            ar2[j] = t;
+                            int t = ar2[j - 1]; // integer t is now assigned to the array[j-1]
+                            ar2[j - 1] = ar2[j]; // array[j-1] is now assigned to the array[j]
+                            ar2[j] = t; // swap the array[j] with the integer t
                         }
                     }
                 }
-                Console.Write("[");
-                for (int ctr = 0; ctr < ar2.Length; ++ctr)
+                Console.Write("["); // output starts with the square bracket
+                for (int ctr = 0; ctr < ar2.Length; ++ctr) // iterate through the for loop through the entire array
                 {
-                    Console.Write(ar2[ctr]);
-                    if (ctr < ar2.Length - 1)
+                    Console.Write(ar2[ctr]);// print the array with the current counter value as the index
+                    if (ctr < ar2.Length - 1) // a conditional if statement to check if the counter has reached the last but one element
                     {
-                        Console.Write(",");
+                        Console.Write(","); // separate it with the "," punctuation
                     }
                 }
-                Console.WriteLine("]");
+                Console.WriteLine("]"); // close the output with the square bracket
             }
             catch (Exception)
             {
@@ -635,22 +637,22 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
-                int nminus2 = 0;
-                int nminus1 = 1;
-                int ctr = 0;
-                int n;
-                while (true)
+                int nminus2 = 0; // integer variable is assigned to 0
+                int nminus1 = 1; // anohter integer variable is assigned to 1
+                int ctr = 0;// a thrid integer variable is assigned to 0
+                int n; // initialize an integer n
+                while (true) // looping while condition is set to be true
                 {
-                    ++ctr;
-                    n = nminus2 + nminus1;
-                    if (ctr == steps)
+                    ++ctr; // increment the counte value
+                    n = nminus2 + nminus1; // n value is set to first integer variable intialized to 0 added to the second integer variable set to 1
+                    if (ctr == steps) // if the counter value is equal to the steps
                     {
-                        break;
+                        break; // break the if condition
                     }
-                    nminus2 = nminus1;
-                    nminus1 = n;
+                    nminus2 = nminus1; // the first integer variable is equal to the second one
+                    nminus1 = n; // the second integer variable is equal to the n value
                 }
-                Console.WriteLine(n);
+                Console.WriteLine(n); // print the n
             }
             catch (Exception)
             {
