@@ -13,6 +13,7 @@ namespace Assignment2_DIS_Spring2021
             int[] ar1 = { 2, 5, 1, 3, 4, 7 };
             int n1 = 3;
             ShuffleArray(ar1, n1);
+            Console.WriteLine("");
 
             //Question 2
             Console.WriteLine("Question 2");
