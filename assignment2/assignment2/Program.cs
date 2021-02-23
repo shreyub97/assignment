@@ -202,24 +202,29 @@ namespace Assignment2_DIS_Spring2021
             {
                 //write code here.
                 Dictionary<int, int> aDictionary = new Dictionary<int, int>();
+                // Instantiate a dictionary aDictionary that holds integer values
                 for (int ctr = 0; ctr < nums.Length; ++ctr)
                 {
+                    // iterate through the counter for all the elements in the integer array nums
                     if (aDictionary.ContainsKey(nums[ctr]))
                     {
+                        // a conditional loop statement, if the dictionary contains the key in the nums array for the counter value
                         ++aDictionary[nums[ctr]];
+                        // append this to the nums counter index value of the dictionary
                     }
                     else
+                    // an else case: 
                     {
-                        aDictionary.Add(nums[ctr], 0);
+                        aDictionary.Add(nums[ctr], 0); // Add the counter value of nums array with 0
                     }
                 }
-                int result = 0;
+                int result = 0; // store 0 in an integer variable result
                 foreach (KeyValuePair<int, int> aKeyValuePair in aDictionary)
                 {
                     // the sum of cool pairs for each value is 1, 2, 3 to value
                     result += aKeyValuePair.Value * (aKeyValuePair.Value + 1) / 2;
                 }
-                Console.WriteLine(result);
+                Console.WriteLine(result); // print the output result
             }
             catch (Exception)
             {
@@ -253,20 +258,22 @@ namespace Assignment2_DIS_Spring2021
                 int first = -1; // store the position of the first number here
                 int second = -1; // store the position of the second number here
                 Dictionary<int, int> aDictionary = new Dictionary<int, int>();
+                // initialize a dictionary to store the integer values 
                 for (int ctr = 0; ctr < nums.Length; ++ctr)
                 {
+                    // loop through all the elements in the nums array
                     if (aDictionary.ContainsKey(nums[ctr]))
                     {
-                        first = aDictionary[nums[ctr]];
-                        second = ctr;
+                        first = aDictionary[nums[ctr]]; // first number contains the value of the dictionary which is the nums array element with ctr as the index
+                        second = ctr; // second number is just the counter value
                         break;
                     }
                     else
                     {
                         aDictionary.Add(target - nums[ctr], ctr);
-                    }
+                    }// add the difference of target value and element in the nums array with ctr as the value.
                 }
-                Console.WriteLine("[" + first + "," + second + "]");
+                Console.WriteLine("[" + first + "," + second + "]"); // output contains square brackets and the first number, second number followed by the closing parenthesis
 
             }
             catch (Exception)
@@ -297,14 +304,15 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
-                char[] anArray = new char[indices.Length];
+                char[] anArray = new char[indices.Length]; // initialize a character array
                 for (int ctr = 0; ctr < indices.Length; ++ctr)
                 {
+                    // loop through th elements of the indices array
                     anArray[indices[ctr]] = s[ctr];
-                }
+                }// append the string s to the indices array which has ctr as the index
                 for (int ctr = 0; ctr < indices.Length; ++ctr)
                 {
-                    Console.Write(anArray[ctr]);
+                    Console.Write(anArray[ctr]); // print the array element which has ctr as the index
                 }
                 Console.WriteLine();
 
@@ -340,41 +348,41 @@ namespace Assignment2_DIS_Spring2021
                 //write code here.
                 Dictionary<char, int> aDictionaryA = new Dictionary<char, int>();
                 Dictionary<char, int> aDictionaryB = new Dictionary<char, int>();
-                List<int> aListA = new List<int>();
-                List<int> aListB = new List<int>();
+                List<int> aListA = new List<int>(); // initalize empty integer lists A and B
+                List<int> aListB = new List<int>(); 
 
                 // generate frequency dictionary
                 for (int ctr = 0; ctr < s1.Length; ++ctr)
-                {
+                {// use a for loop to iterate through the elements of the s1 string array
                     if (aDictionaryA.ContainsKey(s1[ctr]))
                     {
                         ++aDictionaryA[s1[ctr]];
                     }
-                    else
+                    else // if the dicitonary contains key in the s1 string array, add that to the dictionary
                     {
-                        aDictionaryA.Add(s1[ctr], 1);
+                        aDictionaryA.Add(s1[ctr], 1); // else add that along with 1 
                     }
                 }
                 for (int ctr = 0; ctr < s2.Length; ++ctr)
                 {
                     if (aDictionaryB.ContainsKey(s2[ctr]))
-                    {
+                    { // if the dictionary B contains key of the string s2 array
                         ++aDictionaryB[s2[ctr]];
-                    }
+                    } // increment the dictionary B value with the counter index value of the string s2
                     else
                     {
                         aDictionaryB.Add(s2[ctr], 1);
-                    }
+                    } // Dictionary B is to be added to the string s2 with ctr as the index
                 }
 
                 // place dictionary values into a list
                 foreach (KeyValuePair<char, int> aKeyValuePair in aDictionaryA)
                 {
-                    aListA.Add(aKeyValuePair.Value);
+                    aListA.Add(aKeyValuePair.Value); // add the dictionary key-value pair for the list A
                 }
                 foreach (KeyValuePair<char, int> aKeyValuePair in aDictionaryB)
                 {
-                    aListB.Add(aKeyValuePair.Value);
+                    aListB.Add(aKeyValuePair.Value); // add the dictionary ky-value pair for the list B
                 }
 
                 // sort lists
@@ -382,22 +390,23 @@ namespace Assignment2_DIS_Spring2021
                 aListB.Sort();
 
                 // it is isomorphic if lists are equal, not isomorphic otherwise
-                bool result = true;
+                bool result = true; // store the result in a boolean type variable result set to true 
 
-                if (aListA.Count != aListB.Count)
+                if (aListA.Count != aListB.Count) // if the count in list A is not equal to the count in the list B
                 {
-                    result = false;
-                    return result;
+                    result = false; 
+                    return result; // return the result
                 }
                 for (int ctr = 0; ctr < aListA.Count; ++ctr)
                 {
+                    // iterate through the list A with count values and increment the ctr value
                     if (aListA[ctr] != aListB[ctr])
-                    {
+                    { // if list A's counter index value is not equal to list B's counter index value
                         result = false;
                         break;
                     }
                 }
-                return result;
+                return result; // return the final result
             }
             catch (Exception)
             {
@@ -431,19 +440,23 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
+                // initialize a dictionary List with integer 
                 Dictionary<int, List<int>> aDictionary = new Dictionary<int, List<int>>();
+                // loop through the elements in the items array
                 for (int ctr = 0; ctr < items.GetLength(0); ++ctr)
                 {
+                    // if a dictionary contains key in the items array 
                     if (aDictionary.ContainsKey(items[ctr, 0]))
                     {
+                        // instantiate a list with the counter value of the dictionary
                         List<int> aList = aDictionary[items[ctr, 0]];
-                        aList.Add(items[ctr, 1]);
-                        aDictionary[items[ctr, 0]] = aList;
+                        aList.Add(items[ctr, 1]); // add 1 and the counter to the list
+                        aDictionary[items[ctr, 0]] = aList; // add 0 and the counter to the List 
                     }
                     else
                     {
-                        List<int> aList = new List<int>();
-                        aList.Add(items[ctr, 1]);
+                        List<int> aList = new List<int>(); // create a new list
+                        aList.Add(items[ctr, 1]);// add 1 to the items array
                         aDictionary.Add(items[ctr, 0], aList);
                     }
                 }
@@ -459,27 +472,27 @@ namespace Assignment2_DIS_Spring2021
                 {
                     ++comma;
                     List<int> aList = aKeyValuePair.Value;
-                    aList.Sort();
+                    aList.Sort(); // sort the dictonary elements
                     aList.Reverse(); // from ascending make it decending
-                    int average = 0;
-                    int count = 0;
+                    int average = 0; // declare an integer variable average and initialize it to 0
+                    int count = 0; // declare an integer variable count to zero
                     for (int ctr = 0; ctr < aList.Count; ++ctr)
                     {
-                        ++count;
-                        average += aList[ctr];
-                        if (count == 5)
+                        ++count; 
+                        average += aList[ctr]; // average is added to the list containing ctr as the index
+                        if (count == 5) // after 5 elememts, stop
                         {
                             break;
                         }
                     }
-                    average /= count;
+                    average /= count; // average = average divided by the count value
                     Console.Write("[" + aKeyValuePair.Key + "," + average + "]");
                     if (comma < aDictionary.Count)
                     {
-                        Console.Write(",");
+                        Console.Write(","); // to separate the elements by "," 
                     }
                 }
-                Console.WriteLine("]");
+                Console.WriteLine("]"); // close the square bracket
 
             }
             catch (Exception)
@@ -515,34 +528,34 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
-                bool isHappy = false;
-                List<int> aList = new List<int>();
-                while (true)
+                bool isHappy = false; // declare a boolean type variable and set it to false
+                List<int> aList = new List<int>(); // create an empty list
+                while (true) // while the condition is set to be true
                 {
-                    if (n == 1)
+                    if (n == 1) // if the n value is equal to 1
                     {
                         isHappy = true;
-                        break;
+                        break; // assign bool variable to true
                     }
-                    if (aList.Contains(n))
+                    if (aList.Contains(n)) // if the list contains n
                     {
-                        isHappy = false;
+                        isHappy = false; // assign bool variable to false
                         break;
                     }
                     else
                     {
                         aList.Add(n);
                     }
-                    string aString = n.ToString();
+                    string aString = n.ToString(); // initialize a new string
                     int sum = 0;
                     for (int ctr = 0; ctr < aString.Length; ++ctr)
-                    {
+                    { // loop through all the elements in the array 
                         int number = Convert.ToInt32(aString[ctr].ToString());
-                        sum += number * number;
+                        sum += number * number; // sum = sum + number ^2
                     }
                     n = sum;
                 }
-                return isHappy;
+                return isHappy; // return the bool variable value
             }
             catch (Exception)
             {
@@ -571,40 +584,42 @@ namespace Assignment2_DIS_Spring2021
             try
             {
                 //write code here.
-                int[] min = new int[prices.Length];
-                int[] max = new int[prices.Length];
-                int result = int.MaxValue;
+                int[] min = new int[prices.Length];// store min in an integer array
+                int[] max = new int[prices.Length]; // store max in an integer array
+                int result = int.MaxValue; // result is nothing but the maximum value
                 for (int ctr = 0; ctr < prices.Length; ++ctr)
-                {
+                { // iterate through the prices array with ounter value set to 0 
                     if (prices[ctr] < result)
-                    {
-                        result = prices[ctr];
+                    { // if the prices array with counter value is lesser than result
+                        result = prices[ctr]; // append result to the counter value of the prices array
                     }
-                    min[ctr] = result;
+                    min[ctr] = result; // else the result will be equal to the ctr value in the min array
                 }
-                result = int.MinValue;
+                result = int.MinValue; // result is now appended to the minimum value
                 for (int ctr = prices.Length - 1; ctr >= 0; --ctr)
-                {
-                    if (prices[ctr] > result)
+                { 
+                    // iterate through all the elements until the last but one element of the prices array and decrement ctr value
+                    if (prices[ctr] > result) // conditional if looping to be done if the ctr index value of the prices is less than the result
                     {
-                        result = prices[ctr];
+                        result = prices[ctr]; // result becomes equal to the ctr index value of the prices array
                     }
-                    max[ctr] = result;
+                    max[ctr] = result; // result is then appended to the max array element which has the ctr as the index
                 }
-                result = int.MinValue;
+                result = int.MinValue; // now the result is equal to the Minimum value. 
                 for (int ctr = 0; ctr < prices.Length; ++ctr)
                 {
-                    int temp = max[ctr] - min[ctr];
-                    if (temp > result)
+                    // iterate through all the elements of the prices array
+                    int temp = max[ctr] - min[ctr]; // store the difference of the max and min value in the integer variable temp
+                    if (temp > result) // if condition: temp is greater than the result
                     {
-                        result = temp;
+                        result = temp; // result is appended to temp
                     }
                 }
-                if (result < 0)
+                if (result < 0) // if the result is less than 0, 
                 {
-                    return 0;
+                    return 0; // just return 0
                 }
-                return result;
+                return result; // finally return the desired result
             }
             catch (Exception)
             {
